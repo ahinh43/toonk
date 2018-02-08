@@ -48,12 +48,6 @@ debugMode = False
 lastRestart = str(datetime.now())
 
 
-# logger = logging.getLogger('discord')
-# logger.setLevel(logging.DEBUG)
-# handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
-# handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-# logger.addHandler(handler)
-
 
 def is_bot(m):
 	return m.author == client.user
@@ -109,21 +103,6 @@ async def generateList(message,inputstring):
             serverName = splitstr[1]
             classicon = splitstr[2]
             player = splitstr[3]
-            # if (teamName.lower() == 'moonlight' and serverName.lower() == 'sonata') or (teamName.lower() == 'ethereal' and serverName.lower() == 'melody'):
-                # teamName = splitstr[0] + ' ' + splitstr[1]
-                # if teamName.lower() == 'moonlight sonata':
-                    # teamIcon = teamList[3]
-                # elif teamName.lower() == 'ethereal melody':
-                    # teamIcon = teamList[6]
-                # serverName = splitstr[2]
-                # player = splitstr[3]
-                # if len(splitstr) > 4:
-                    # for index in range(len(splitstr)):
-                        # if index == 0 or index == 1 or index == 2 or index == 3:
-                            # pass
-                        # else:
-                            # player+= ' ' + splitstr[index]
-            # else:
             if teamName.lower() == 'ishana':
                 teamIcon = teamList[0]
                 hasIcon = True
@@ -399,11 +378,6 @@ async def on_message(message):
                                 for index in range(12):
                                     EQTest[message.channel.name].append(PlaceHolder(""))
                                 totalPeople[message.channel.name] = 12
-                            # em = discord.Embed(description='Use `^addme` to sign up. \nUse `^removeme` to remove yourself from the mpa \nIf the MPA list is full, signing up will put you in the reserve list.'.format(userstr), colour=0x4DFFFF)
-                            # em.set_author(name='An MPA is starting!', icon_url=message.server.icon_url)
-                            # await client.send_message(client.get_channel('326883995641970689'), '', embed=em)
-                            # await client.send_message(client.get_channel('326875381477146624'), '', embed=em)
-                            # await client.send_message(client.get_channel('331388355289808897'), '', embed=em)
                             await generateList(message, '```dsconfig\nStarting MPA. Please use !addme to sign up!```')
                         except discord.Forbidden:
                             print (message.author.name + 'Tried to start an MPA at {}, but failed.'.format(message.server.name))
